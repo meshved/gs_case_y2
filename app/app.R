@@ -785,7 +785,7 @@ server <- function(input, output, session) {
         "Please fill every field - the certificate needs them all.")); return()
     }
     emails <- unlist(vals[grepl("email", names(vals))])
-    if (any(!grepl("^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$", emails))) {
+    if (any(!grepl("^[^@[:space:]]+@[^@[:space:]]+\\.[^@[:space:]]+$", emails))) {
       output$intro_msg <- renderUI(p(style="color:#c0522d",
         "One of the email addresses doesn't look right.")); return()
     }
